@@ -21,9 +21,9 @@ def offset_datetime(filename, offset):
     for tag in (DATETIME, DATETIME_DIGITIZED, DATETIME_ORIGINAL):
         # print(f"Tag: {tag}")
         if tag == DATETIME:
-            keys = ('0th', '1st')
+            keys = ("0th", "1st")
         else:
-            keys = ('Exif', )
+            keys = ("Exif",)
 
         for key in keys:
             # print(f"Key: {key}")
@@ -38,7 +38,7 @@ def offset_datetime(filename, offset):
 
 
 def _offset_dt_str(dt_str, offset):
-    exif_dt_format = '%Y:%m:%d %H:%M:%S'
+    exif_dt_format = "%Y:%m:%d %H:%M:%S"
     dt = datetime.strptime(dt_str.decode(), exif_dt_format)
     new_dt = dt + offset
     return new_dt.strftime(exif_dt_format).encode()
